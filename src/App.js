@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { NoteProvider } from './context/NoteContext';
+import NoteList from './components/NoteList';
+import AddNoteForm from './components/AddNoteForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <NoteProvider>
+      <div className="container mx-auto p-4">
+        <h1 className="text-4xl font-bold text-center mb-8">Simple Note Taking App</h1>
+        <AddNoteForm />
+        <NoteList />
+      </div>
+    </NoteProvider>
+  )
 }
 
-export default App;
+export default App
